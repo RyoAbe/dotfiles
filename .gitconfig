@@ -1,0 +1,31 @@
+[http]
+	sslVerify = true
+[user]
+	name = ryoabe
+	email = ryoabe.gm@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+	shared = true
+	quotepath = false
+	precomposeunicode = true
+[color]
+	ui = true
+[alias]
+	co = checkout
+	st = status
+	ci = commit
+	di = diff
+	br = branch
+	wh = whatchanged
+	stat = log --stat --summary
+	logg = log --graph --decorate --pretty=format:\"%ad [%cn] %h> %n %Cgreen%d%Creset %s %n\" --name-status
+	logs = log --graph --decorate --pretty=format:\"%ad [%cn] %h> %n %Cgreen%d%Creset %s %n\" --stat
+	ol = log --oneline
+	lp = log -p
+	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git diff-index --quiet HEAD; s=$?; [ $s != 0 ] && git stash save \"tmp stash from stash-rename\"; git stash apply $rev && shift && git stash save \"$@\" && [ $s != 0 ] && git stash pop stash@{1}; }; _"
+[pack]
+	packSizeLimit = 500m
+	windowMemory = 250m
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

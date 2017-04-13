@@ -1,0 +1,8 @@
+# Exclude temp nibs and swap files
+*.swp
+
+# Exclude OS X folder attributes
+.DS_Store
+
+# Emacs backup file
+*~
